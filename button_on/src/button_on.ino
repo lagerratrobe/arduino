@@ -9,8 +9,8 @@ void setup() {
 }
 
 void loop() {
-  if (digitalRead(BUTTON) == LOW) {
-    digitalWrite(LED, LOW);
+  if (digitalRead(BUTTON) == LOW) { // BUTTON is LOW when not pressed
+    digitalWrite(LED, LOW); // LED is LOW when off
   }
   else {
     digitalWrite(LED, HIGH);
