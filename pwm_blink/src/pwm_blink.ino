@@ -1,15 +1,18 @@
-/* Hacked up "blink LED" code.  Blinks an LED on pin 9 in 1 sec intervals */
+/* GRADUALLY RAMP UP BRIGHTNESS OF LED USING PWM  */
  
-int led = 9;
+int LED = 9;
 
 void setup() {                
-  pinMode(led, OUTPUT); // setup led pin for output
+  pinMode(LED, OUTPUT); // setup led pin for output
 } 
 
-// the loop routine runs over and over again forever:
 void loop() {
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
-  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
+  for (int i=0; i<256; i++) {
+    analogWrite(LED, i);
+    delay(20);
+  }
+  for (int i=255; i>=0; i--) {
+    analogWrite(LED, i);
+    delay(20);
+  }
 }
